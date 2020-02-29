@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'coupons_controller/parent_module/application_controller'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,4 +55,8 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  resources :coupons, only: [:index, :show, :new, :create]
+  get '/coupon/:id', to: 'coupon#show'
+
 end
